@@ -1,6 +1,8 @@
 package com.example.examena;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
@@ -15,11 +17,20 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MatrizActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
+    private Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matriz);
+
+        Button btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         recyclerView = findViewById(R.id.recy);
 
