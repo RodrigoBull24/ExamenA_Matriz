@@ -1,10 +1,16 @@
 package com.example.examena;
 
+import static java.security.AccessController.getContext;
+
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,6 +48,15 @@ public class MatrizActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, gridSize)); //Establece un GridLayoutManager en el RecyclerView con el tamaño de la cuadrícula calculado
         MatrizAdapter adapter = new MatrizAdapter(maxPerfectSquare);
         recyclerView.setAdapter(adapter); //Establece el adaptador en el RecyclerView, lo que permite que los datos se muestren en la cuadrícula
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
+        int colorWhite = ContextCompat.getColor(getApplicationContext(), android.R.color.white);
+        dividerItemDecoration.setDrawable(new ColorDrawable(colorWhite));
+        recyclerView.addItemDecoration(dividerItemDecoration);
+
+        DividerItemDecoration horizontalDividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.HORIZONTAL);
+        dividerItemDecoration.setDrawable(new ColorDrawable(colorWhite));
+        recyclerView.addItemDecoration(horizontalDividerItemDecoration);
     }
 
     private int getMaxPerfectSquare(int number) { //Encuentra el mayor cuadrado perfecto menor o igual al número de entrada

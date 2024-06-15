@@ -5,14 +5,19 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".MatrizAdapter">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="374dp"
-        android:layout_height="203dp"
+        android:layout_width="280dp"
+        android:layout_height="104dp"
+        android:background="#00FF00"
+        android:gravity="center"
+        android:padding="8dp"
         android:text="TextView"
         android:textAlignment="center"
+        android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
